@@ -18,10 +18,11 @@ p {
 }
 .widget {
   background: #fff;
-  margin: 50px 20px;
+  margin: 50px auto;
   border: 1px solid rgb(10, 50, 125);
   border-radius: 20px;
   box-shadow: 12px 12px 5px rgb(10, 50, 125);
+  max-width: 800px;
 }
 .mb-3 {
   margin: 0 40px;
@@ -78,6 +79,11 @@ form {
   font-size: 35px;
   color: #2a7bca;
   text-align: center;
+}
+.temperaturemain span {
+  position: relative;
+  font-size: 15px;
+  top: -15px;
 }
 .textsmall {
   font-size: 10px;
