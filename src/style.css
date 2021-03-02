@@ -11,10 +11,10 @@ h1 {
 
 p {
   text-align: center;
-  padding: 20px 0 0 0;
+  padding: 5px 0 0 0;
   color: #2a7bca;
   font-style: italic;
-  font-size: 15px;
+  font-size: 10px;
 }
 .widget {
   background: #fff;
@@ -55,7 +55,7 @@ form {
   border: 1px solid #2a7bca;
   border-radius: 10px;
   padding: 5px 0.5px;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -69,28 +69,29 @@ form {
 }
 
 .citymain {
-  font-size: 50px;
+  font-size: 35px;
   color: #2a7bca;
   margin-top: 10px;
   text-align: left;
 }
 .temperaturemain {
-  font-size: 50px;
+  font-size: 35px;
   color: #2a7bca;
   text-align: center;
 }
 .textsmall {
-  font-size: 15px;
+  font-size: 10px;
   text-align: left;
-  padding: 10px;
+  padding: 10px 0 20px 0;
 }
 .sectionnextdays {
   font-weight: 100%;
 }
 .nextdays {
-  font-size: 25px;
+  font-size: 15px;
   color: #2a7bca;
   max-width: 150%;
+  padding: 10px 0;
 }
 .weatherother {
   color: #ced4d9;
