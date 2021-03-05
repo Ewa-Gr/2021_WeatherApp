@@ -73,8 +73,8 @@ function searchHongKong(event) {
 
 function showYourCity(event) {
   event.preventDefault();
-  let cityla = document.querySelector("#current-loc").value;
-  search(cityla);
+  let city = document.querySelector("#input-yourcity").value;
+  search(city);
 }
 
 let cityForm = document.querySelector("form");
