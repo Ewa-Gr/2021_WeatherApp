@@ -21,8 +21,8 @@ if (mins < 10) {
   mins = `0${mins}`;
 }
 
-let nowday = document.querySelector(".nowday");
-nowday.innerHTML = `${day}</br>${hours}:${mins}`;
+let nowday = document.querySelector("#nowday");
+nowday.innerHTML = `${day} ${hours}:${mins}`;
 // Feature 2
 //Add a search engine, when searching for a city (i.e. Paris),
 //display the city name on the page after the user submits the form.
@@ -33,8 +33,11 @@ function showTempAndCity(response) {
   tempChange.innerHTML = `${temperature}°C`;
   let wind = Math.round(response.data.wind.speed) * 3.6;
   let humidity = Math.round(response.data.main.humidity);
+  let desription = (response.data.weather[0].main);
   let windChange = document.querySelector("#otherweather");
+  let descriptionChange = document.querySelector ("#maindescription");
   windChange.innerHTML = `Humidity: ${humidity} % <br /> Wind: ${wind} km/h`;
+  descriptionChange.innerHTML = `${desription}`
   console.log(response);
 }
 function search(city) {
@@ -61,13 +64,20 @@ function showYourCity(event) {
   search(city);
 }
 
+function showLaCity(event) {
+  event.preventDefault();
+  let cityla = document.querySelector("#input-lacity").value;
+  search(cityla);
+}
+
 let cityForm = document.querySelector("form");
 cityForm.addEventListener("submit", showYourCity);
 
 let currentLocButton = document.querySelector("#current-loc");
+let laLocButton = document.querySelector("#input-lacity");
 
 currentLocButton.addEventListener("click", getCurrentLocation);
-
+laLocButton.addEventListener("click", showLaCity);
 search("London");
 
 //Bonus Feature

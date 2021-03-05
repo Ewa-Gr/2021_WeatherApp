@@ -43,7 +43,9 @@
               </button>
             </div>
             <div class="col-3">
-              <button type="button" class="btn btn-light">Los Angeles</button>
+              <button id="input-lacity" type="button" class="btn btn-light">
+                Los Angeles
+              </button>
             </div>
             <div class="col-3">
               <button type="button" class="btn btn-light">London</button>
@@ -59,9 +61,12 @@
           <div id="maindaytemp" class="col-6 temperaturemain">
             10<span>°C |<a href="#" id="fahrenheit-link">°F</a></span>
           </div>
-          <div class="col-3 textsmall nowday">Cloudy <br /></div>
+          <div class="col-3 textsmall">
+            <span id="maindescription">Cloudy</span><br /><span
+              id="nowday"
+            ></span>
+          </div>
           <div id="otherweather" class="col-3 textsmall">
-            Precipitation: XY% <br />
             Humidity:XY% <br />
             Wind: Xkm/h
           </div>
