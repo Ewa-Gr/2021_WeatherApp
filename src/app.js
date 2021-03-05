@@ -58,15 +58,22 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function showYourCity(event) {
+function searchLa(event) {
   event.preventDefault();
-  let city = document.querySelector("#input-yourcity").value;
-  search(city);
+  search ("Los Angeles");
+}
+function searchBarcelona(event) {
+  event.preventDefault();
+  search ("Barcelona");
+}
+function searchHongKong(event) {
+  event.preventDefault();
+  search ("Hong Kong");
 }
 
-function showLaCity(event) {
+function showYourCity(event) {
   event.preventDefault();
-  let cityla = document.querySelector("#input-lacity").value;
+  let cityla = document.querySelector("#current-loc").value;
   search(cityla);
 }
 
@@ -75,9 +82,13 @@ cityForm.addEventListener("submit", showYourCity);
 
 let currentLocButton = document.querySelector("#current-loc");
 let laLocButton = document.querySelector("#input-lacity");
+let BLocButton = document.querySelector("#input-bcity");
+let HKLocButton = document.querySelector("#input-hkcity");
 
 currentLocButton.addEventListener("click", getCurrentLocation);
-laLocButton.addEventListener("click", showLaCity);
+laLocButton.addEventListener("click", searchLa);
+BLocButton.addEventListener("click", searchBarcelona);
+HKLocButton.addEventListener("click", searchHongKong);
 search("London");
 
 //Bonus Feature
