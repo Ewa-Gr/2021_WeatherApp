@@ -16,6 +16,9 @@ p {
   font-style: italic;
   font-size: 10px;
 }
+a {
+  text-decoration: none;
+}
 .widget {
   background: #fff;
   margin: 50px auto;
@@ -82,9 +85,19 @@ form {
 }
 .temperaturemain span {
   position: relative;
-  font-size: 15px;
+  color: #4c4d4e;
+  font-size: 12px;
   top: -15px;
 }
+
+.temperaturemain .active {
+  color: rgb(0, 0, 0);
+  cursor: default;
+}
+.temperaturemain .active:hover {
+  text-decoration: none;
+}
+
 .textsmall {
   font-size: 10px;
   text-align: left;

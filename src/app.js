@@ -30,7 +30,7 @@ function showTempAndCity(response) {
   document.querySelector("#your-city").innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let tempChange = document.querySelector("#maindaytemp");
-  tempChange.innerHTML = `${temperature}°C`;
+  tempChange.innerHTML = `${temperature}`;
   let wind = Math.round(response.data.wind.speed) * 3.6;
   let humidity = Math.round(response.data.main.humidity);
   let desription = (response.data.weather[0].main);
@@ -38,6 +38,9 @@ function showTempAndCity(response) {
   let descriptionChange = document.querySelector ("#maindescription");
   windChange.innerHTML = `Humidity: ${humidity} % <br /> Wind: ${wind} km/h`;
   descriptionChange.innerHTML = `${desription}`;
+
+  celsiusTemp = response.data.main.temp;
+
   let iconChange = document.querySelector ("#icon-today");
       if(response.data.weather[0].icon === "01d" || response.data.weather[0].icon === "01n") {
       iconChange.setAttribute("class", "col-6 fas fa-sun weathermain");
@@ -54,7 +57,7 @@ function showTempAndCity(response) {
     } else if(response.data.weather[0].icon === "11d" || response.data.weather[0].icon === "11n") {
       iconChange.setAttribute("class", "col-6 fas fa-bolt weathermain");
     } else if(response.data.weather[0].icon === "13d" || response.data.weather[0].icon === "13n") {
-      iconChange.setAttribute("class", "col-6 as fa-snowflake weathermain");
+      iconChange.setAttribute("class", "col-6 fas fa-snowflake weathermain");
     } else if(response.data.weather[0].icon === "50d" || response.data.weather[0].icon === "50n") {
       iconChange.setAttribute("class", "col-6 fas fa-water weathermain");
     };
@@ -80,14 +83,20 @@ function getCurrentLocation(event) {
 
 function searchLa(event) {
   event.preventDefault();
+      celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   search ("Los Angeles");
 }
 function searchBarcelona(event) {
   event.preventDefault();
+      celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   search ("Barcelona");
 }
 function searchHongKong(event) {
   event.preventDefault();
+    celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   search ("Hong Kong");
 }
 
@@ -109,9 +118,36 @@ currentLocButton.addEventListener("click", getCurrentLocation);
 laLocButton.addEventListener("click", searchLa);
 BLocButton.addEventListener("click", searchBarcelona);
 HKLocButton.addEventListener("click", searchHongKong);
-search("Berlin");
 
 //Bonus Feature
 //Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit.
 //When clicking on it, it should convert the temperature to Fahrenheit.
 //When clicking on Celsius, it should convert it back to Celsius.
+
+
+function showFahrenheitTemp(event){
+  event.preventDefault;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let tempElement = document.querySelector("#maindaytemp");
+  let fTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round (fTemp);
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+    let tempElement = document.querySelector("#maindaytemp");
+    tempElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp =null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+search("Berlin");
