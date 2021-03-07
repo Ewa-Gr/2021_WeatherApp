@@ -37,7 +37,27 @@ function showTempAndCity(response) {
   let windChange = document.querySelector("#otherweather");
   let descriptionChange = document.querySelector ("#maindescription");
   windChange.innerHTML = `Humidity: ${humidity} % <br /> Wind: ${wind} km/h`;
-  descriptionChange.innerHTML = `${desription}`
+  descriptionChange.innerHTML = `${desription}`;
+  let iconChange = document.querySelector ("#icon-today");
+      if(response.data.weather[0].icon === "01d" || response.data.weather[0].icon === "01n") {
+      iconChange.setAttribute("class", "col-6 fas fa-sun weathermain");
+    } else if(response.data.weather[0].icon === "02d" || response.data.weather[0].icon === "02n") {
+      iconChange.setAttribute("class", "col-6 fas fa-cloud-sun weathermain");
+    } else if(response.data.weather[0].icon === "03d" || response.data.weather[0].icon === "03n") {
+      iconChange.setAttribute("class", "col-6 fas fa-cloud weathermain");
+    } else if(response.data.weather[0].icon === "04d" || response.data.weather[0].icon === "04n") {
+      iconChange.setAttribute("class", "col-6 fas fa-cloud weathermain");
+    } else if(response.data.weather[0].icon === "09d" || response.data.weather[0].icon === "09n") {
+      iconChange.setAttribute("class", "col-6 fas fa-cloud-showers-heavy weathermain");
+    } else if(response.data.weather[0].icon === "10d" || response.data.weather[0].icon === "10n") {
+      iconChange.setAttribute("class", "col-6 fas fa-cloud-rain weathermain");
+    } else if(response.data.weather[0].icon === "11d" || response.data.weather[0].icon === "11n") {
+      iconChange.setAttribute("class", "col-6 fas fa-bolt weathermain");
+    } else if(response.data.weather[0].icon === "13d" || response.data.weather[0].icon === "13n") {
+      iconChange.setAttribute("class", "col-6 as fa-snowflake weathermain");
+    } else if(response.data.weather[0].icon === "50d" || response.data.weather[0].icon === "50n") {
+      iconChange.setAttribute("class", "col-6 fas fa-water weathermain");
+    };
   console.log(response);
 }
 function search(city) {
@@ -89,7 +109,7 @@ currentLocButton.addEventListener("click", getCurrentLocation);
 laLocButton.addEventListener("click", searchLa);
 BLocButton.addEventListener("click", searchBarcelona);
 HKLocButton.addEventListener("click", searchHongKong);
-search("London");
+search("Berlin");
 
 //Bonus Feature
 //Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit.
