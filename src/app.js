@@ -61,19 +61,152 @@ function showTempAndCity(response) {
     } else if(response.data.weather[0].icon === "50d" || response.data.weather[0].icon === "50n") {
       iconChange.setAttribute("class", "col-6 fas fa-water weathermain");
     };
-  console.log(response);
+
 }
+
+function showForecast (response) {
+  let forecastElement =document.querySelector("#forecast");
+  let forecastdayone = response.data.list[8];
+  let forecastdaytwo = response.data.list[16];
+  let forecastdaythree = response.data.list[24];
+  let forecastdayfour = response.data.list[32];
+  let forecastfirst = days[now.getDay() +1];
+  let forecastsecond = days[now.getDay() +2];
+  let forecastthird = days[now.getDay() +3];
+  let forecastfourth = days[now.getDay() +4];
+  let iconfirst = response.data.list[8].weather[0].icon;
+    if (iconfirst === "01d"  || iconfirst === "01n") {
+    let iconclassdayone = "fas fa-sun";
+  } else if (iconfirst === "02d"  || iconfirst === "02n") {
+    iconclassdayone = "fas fa-cloud-sun";
+  } else if (iconfirst === "03d"  || iconfirst === "03n") {
+    iconclassdayone = "fas fa-cloud";
+  } else if (iconfirst === "04d"  || iconfirst === "04n") {
+    iconclassdayone = "fas fa-cloud";
+  } else if (iconfirst === "09d"  || iconfirst === "09n") {
+    iconclassdayone = "fas fa-cloud-showers-heavy";
+  } else if (iconfirst === "10d"  || iconfirst === "10n") {
+    iconclassdayone = "fas fa-cloud-rain";
+  } else if (iconfirst === "11d"  || iconfirst === "11n") {
+    iconclassdayone = "fas fa-bolt";
+  } else if (iconfirst === "13d"  || iconfirst === "13n") {
+    iconclassdayone = "fas fa-snowflake";
+  } else if (iconfirst === "50d"  || iconfirst === "50n") {
+    iconclassdayone = "fas fa-water";
+  } else {
+  iconclassdayone = "fas fa-exclamation-triangle";
+}
+
+  let iconsecond = response.data.list[16].weather[0].icon;
+  let iconclassdaytwo = "fas fa-exclamation-triangle";
+  if (iconsecond === "01d"  || iconsecond === "01n") {
+    iconclassdaytwo = "fas fa-sun";
+  } else if (iconsecond === "02d"  || iconsecond === "02n") {
+    iconclassdaytwo = "fas fa-cloud-sun";
+  } else if (iconsecond === "03d"  || iconsecond === "03n") {
+    iconclassdaytwo = "fas fa-cloud";
+  } else if (iconsecond === "04d"  || iconsecond === "04n") {
+    iconclassdaytwo = "fas fa-cloud";
+  } else if (iconsecond === "09d"  || iconsecond === "09n") {
+    iconclassdaytwo = "fas fa-cloud-showers-heavy";
+  } else if (iconsecond === "10d"  || iconsecond === "10n") {
+    iconclassdaytwo = "fas fa-cloud-rain";
+  } else if (iconsecond === "11d"  || iconsecond=== "11n") {
+    iconclassdaytwo = "fas fa-bolt";
+  } else if (iconsecond === "13d"  || iconsecond === "13n") {
+    iconclassdaytwo = "fas fa-snowflake";
+  } else if (iconsecond === "50d"  || iconsecond === "50n") {
+    iconclassdaytwo = "fas fa-water";
+  } else {
+    iconclassdaytwo = "fas fa-exclamation-triangle"
+  }
+
+  let iconthird = response.data.list[24].weather[0].icon;
+  let iconclassdaythree = "fas fa-exclamation-triangle";
+  if (iconthird === "01d"  || iconthird === "01n") {
+    iconclassdaythree = "fas fa-sun";
+  } else if (iconthird === "02d"  || iconthird === "02n") {
+    iconclassdaythree = "fas fa-cloud-sun";
+  } else if (iconthird === "03d"  || iconthird === "03n") {
+    iconclassdaythree = "fas fa-cloud";
+  } else if (iconthird === "04d"  || iconthird === "04n") {
+    iconclassdaythree = "fas fa-cloud";
+  } else if (iconthird === "09d"  || iconthird === "09n") {
+    iconclassdaythree = "fas fa-cloud-showers-heavy";
+  } else if (iconthird === "10d"  || iconthird === "10n") {
+    iconclassdaythree = "fas fa-cloud-rain";
+  } else if (iconthird === "11d"  || iconthird === "11n") {
+    iconclassdaythree = "fas fa-bolt";
+  } else if (iconthird === "13d"  || iconthird === "13n") {
+    iconclassdaythree = "fas fa-snowflake";
+  } else if (iconthird === "50d"  || iconthird === "50n") {
+    iconclassdaythree = "fas fa-water";
+  } else {
+    iconclassdaythree = "fas fa-exclamation-triangle"
+  }
+
+  let iconfourth = response.data.list[32].weather[0].icon;
+    let iconclassdayfour = "fas fa-exclamation-triangle";
+  if (iconfourth === "01d"  || iconfourth === "01n") {
+    iconclassdayfour = "fas fa-sun";
+  } else if (iconfourth === "02d"  || iconfourth === "02n") {
+    iconclassdayfour = "fas fa-cloud-sun";
+  } else if (iconfourth === "03d"  || iconfourth === "03n") {
+    iconclassdayfour = "fas fa-cloud";
+  } else if (iconfourth === "04d"  || iconfourth === "04n") {
+    iconclassdayfour = "fas fa-cloud";
+  } else if (iconfourth === "09d"  || iconfourth === "09n") {
+    iconclassdayfour = "fas fa-cloud-showers-heavy";
+  } else if (iconfourth === "10d"  || iconfourth === "10n") {
+    iconclassdayfour = "fas fa-cloud-rain";
+  } else if (iconfourth === "11d"  || iconfourth === "11n") {
+    iconclassdayfour = "fas fa-bolt";
+  } else if (iconfourth === "13d"  || iconfourth === "13n") {
+    iconclassdayfour = "fas fa-snowflake";
+  } else if (iconfourth === "50d"  || iconfourth === "50n") {
+    iconclassdayfour = "fas fa-water";
+  } else {
+    iconclassdayfour = "fas fa-exclamation-triangle"
+  }
+  forecastElement.innerHTML =`
+            <div class="row text-center">
+              <div class="col">${forecastfirst}</div>
+              <div class="col">${forecastsecond}</div>
+              <div class="col">${forecastthird}</div>
+              <div class="col">${forecastfourth}</div>
+            </div>
+            <div class="row weatherother text-center">
+              <div class="col"><i class="${iconclassdayone}"></i></div>
+              <div class="col"><i class="${iconclassdaytwo}"></i></div>
+              <div class="col"><i class="${iconclassdaythree}"></i></div>
+              <div class="col"><i class="${iconclassdayfour}"></i></div>
+            </div>
+            <div class="row text-center">
+              <div class="col"><strong>${Math.round(forecastdayone.main.temp)}°</strong> ${Math.round(forecastdayone.main.feels_like)}°</div>
+              <div class="col"><strong>${Math.round(forecastdaytwo.main.temp)}°</strong> ${Math.round(forecastdaytwo.main.feels_like)}°</div>
+              <div class="col"><strong>${Math.round(forecastdaythree.main.temp)}°</strong> ${Math.round(forecastdaythree.main.feels_like)}°</div>
+              <div class="col"><strong>${Math.round(forecastdayfour.main.temp)}°</strong> ${Math.round(forecastdayfour.main.feels_like)}°</div>
+            </div>
+`;
+
+}
+
 function search(city) {
   let apiKey = "ad5ef6d6835e2df059ef5e09fca59c37";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTempAndCity);
+
+  apiUrl =`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showForecast);
 }
+
 function searchLocation(position) {
   let apiKey = "ad5ef6d6835e2df059ef5e09fca59c37";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTempAndCity);
+
 }
 
 function getCurrentLocation(event) {
